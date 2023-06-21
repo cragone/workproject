@@ -1,0 +1,44 @@
+CREATE TABLE process_area (
+    process_area_id SERIAL PRIMARY KEY,
+    process_area_name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE room (
+    room_id SERIAL PRIMARY KEY,
+    room_name VARCHAR(50) NOT NULL UNIQUE,
+    process_area_id INT NOT NULL,
+    FOREIGN KEY (process_area_id) REFERENCES process_area (process_area_id)
+);
+
+CREATE TABLE notes (
+    room_name VARCHAR(50),
+    room_notes TEXT PRIMARY KEY,
+    addressed BOOLEAN,
+    datetime VARCHAR(30),
+    FOREIGN KEY (room_name) REFERENCES room (room_name)
+);
+
+CREATE TABLE logbook (
+    log_id VARCHAR(25) PRIMARY KEY,
+    due VARCHAR(20),
+    notes TEXT,
+    room_name VARCHAR(50),
+    FOREIGN KEY (room_name) REFERENCES room (room_name)
+);
+
+CREATE TABLE equip_status (
+    ecn INTEGER PRIMARY KEY,
+    room_name VARCHAR(50),
+    req TEXT,
+    status VARCHAR(20),
+    expiry VARCHAR(20),
+    FOREIGN KEY (room_name) REFERENCES room (room_name)
+);
+
+INSERT INTO process_area (process_area_name) VALUES ('pa1');
+INSERT INTO process_area (process_area_name) VALUES ('pa2s');
+INSERT INTO process_area (process_area_name) VALUES ('pa3s');
+INSERT INTO process_area (process_area_name) VALUES ('sr');
+INSERT INTO process_area (process_area_name) VALUES ('sa4');
+INSERT INTO process_area (process_area_name) VALUES ('sa6');
+INSERT INTO process_area (process_area_name) VALUES ('sa9');
