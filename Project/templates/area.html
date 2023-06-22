@@ -32,18 +32,79 @@
     <div class="container">
         <h1>{{area_name}} Walkthrough Items</h1>
         <div class="card">
-            <table id="rooms">
+            <h4 class="card-title">{{room}}</h4>
+            <table id="roomNotes" class="table table-striped table-bordered table-hover">
                 <thead>
                   <tr>
-                    <th>equipment</th>
-                    <th>logbooks</th>
+                    <th>Notes</th>
+                    <th>Acknowledge</th>
                   </tr>
                 </thead>
-                <tbody id="roomData">
+                <tbody id="roomNotesData">
+                  <tr>
+                    <td>This is a note.</td>
+                    <td><button type="button">Acknowledge</button></td>
+                  </tr>
+                  <tr>
+                    <td>This is another note.</td>
+                    <td><button type="button">Acknowledge</button></td>
+                  </tr>
                 </tbody>
               </table>
+              
+              <table id="equipment" class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>ECN</th>
+                    <th>Notes</th>
+                    <th>Status</th>
+                    <th>Expiry</th>
+                    <th>Acknowledge</th>
+                  </tr>
+                </thead>
+                <tbody id="equipmentData">
+                  <tr>
+                    <td>12346</td>
+                    <td>This is a note about an ECN.</td>
+                    <td>Dirty</td>
+                    <td>06Aug2023</td>
+                    <td><button type="button">Acknowledge</button></td>
+                  </tr>
+                  <tr>
+                    <td>65321</td>
+                    <td>This is another note about an ECN.</td>
+                    <td>Clean</td>
+                    <td>08Nov2023</td>
+                    <td><button type="button">Acknowledge</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table id="logbooks" class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Logbook Name</th>
+                    <th>Notes</th>
+                    <th>Acknowledge</th>
+                  </tr>
+                </thead>
+                <tbody id="logbooksData">
+                  <tr>
+                    <td>Logbook 1</td>
+                    <td>This is a note about a logbook.</td>
+                    <td><button type="button">Acknowledge</button></td>
+                  </tr>
+                  <tr>
+                    <td>Logbook 2</td>
+                    <td>This is another note about a logbook.</td>
+                    <td><button type="button">Acknowledge</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              
     </div>
 </body>
+
 
 <script>
     const processArea = "{{area_name}}";
