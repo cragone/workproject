@@ -32,129 +32,41 @@
     <div class="container">
         <h1>{{area_name}} Walkthrough Items</h1>
         <div class="card">
-        <h2>Room {{room}}</h2>
-        <div class="card">
-        <table>
-            <thead>
-                <tr>
-                    <th>Room Notes</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>example note</td>
-                    <td>example date</td>
-                </tr>
-                <!-- Add more rows for additional room information -->
-            </tbody>
-        </table>
-        </div>
-        <div class="card">
-        <table>
-            <thead>
-                <tr>
-                    <th>ECN</th>
-                    <th>Status</th>
-                    <th>Notes</th>
-                    <th>Expiry</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>example ecn</td>
-                    <td>example status</td>
-                    <td>example notes</td>
-                    <td>example</td>
-                </tr>
-                <!-- Add more rows for additional room status information -->
-            </tbody>
-        </table>
-        </div>
-        <div class="card">
-        <table>
-            <thead>
-                <tr>
-                    <th>Log ID</th>
-                    <th>Due</th>
-                    <th>Notes</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Example logbook</td>
-                    <td>example date</td>
-                    <td>example note</td>
-                </tr>
-                <!-- Add more rows for additional logbook information -->
-            </tbody>
-        </table>
-        </div>
-        </div>
-
-        <div class="card">
-        <h2>Room {{room}}</h2>
-        <div class="card">
-        <table>
-            <thead>
-                <tr>
-                    <th>Room Notes</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>example note</td>
-                    <td>example date</td>
-                </tr>
-                <!-- Add more rows for additional room information -->
-            </tbody>
-        </table>
-        </div>
-        <div class="card">
-        <table>
-            <thead>
-                <tr>
-                    <th>ECN</th>
-                    <th>Status</th>
-                    <th>Notes</th>
-                    <th>Expiry</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>example ecn</td>
-                    <td>example status</td>
-                    <td>example notes</td>
-                    <td>example</td>
-                </tr>
-                <!-- Add more rows for additional room status information -->
-            </tbody>
-        </table>
-        </div>
-        <div class="card">
-        <table>
-            <thead>
-                <tr>
-                    <th>Log ID</th>
-                    <th>Due</th>
-                    <th>Notes</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Example logbook</td>
-                    <td>example date</td>
-                    <td>example note</td>
-                </tr>
-                <!-- Add more rows for additional logbook information -->
-            </tbody>
-        </table>
-        </div>
-        </div>
-        </div>
-        
-        <!-- Add more rooms and tables as needed -->
+            <table id="rooms">
+                <thead>
+                  <tr>
+                    <th>equipment</th>
+                    <th>logbooks</th>
+                  </tr>
+                </thead>
+                <tbody id="roomData">
+                </tbody>
+              </table>
     </div>
 </body>
+
+<script>
+    const processArea = "{{area_name}}";
+
+    function getRooms() {
+        //let rooms = $("#rooms").val();
+        // let rooms = document.getElementById('content').val();
+        //alert(myinput)
+        // Make the POST request
+       
+        axios.get(`/rooms?process_area_name=${processArea}`).then(response => {
+            // Handle the response
+            
+            console.log(response.data);
+            
+            
+            
+          });
+        
+    }
+    getRooms();
+
+
+
+</script>
 </html>
