@@ -48,6 +48,11 @@
                 </tr>
                 <!-- Add more rows for additional room information -->
             </tbody>
+            <tfoot>
+                <tr>
+                  <td colspan="4"><button type="submit">Submit</button></td>
+                </tr>
+              </tfoot>
         </table>
         </div>
         
@@ -73,6 +78,11 @@
                 </tr>
                 <!-- Add more rows for additional room status information -->
             </tbody>
+            <tfoot>
+                <tr>
+                  <td colspan="4"><button type="submit">Submit</button></td>
+                </tr>
+              </tfoot>
         </table>
         </div>
         
@@ -80,34 +90,44 @@
         <h2>Table 3 - Logbook Information</h2>
         <table>
             <thead>
-                <tr>
-                    <th>Room</th>
-                    <th>Log ID</th>
-                    <th>Notes</th>
-                    <th>Due</th>
-                </tr>
+              <tr>
+                <th>Room</th>
+                <th>Log ID</th>
+                <th>Notes</th>
+                <th>Due</th>
+              </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><input type="text" name="room3" placeholder="Room" size="12"></td>
-                    <td><input type="text" name="log_id" placeholder="Log ID" size="12"></td>
-                    <td><input type="text" name="log_notes" placeholder="Log Notes" size="28"></td>
-                    <td><input type="date" name="due"></td>
-                </tr>
-                <!-- Add more rows for additional logbook information -->
+              <tr>
+                <td><input type="text" name="room3" placeholder="Room" size="12"></td>
+                <td><input type="text" name="log_id" placeholder="Log ID" size="12"></td>
+                <td><input type="text" name="log_notes" placeholder="Log Notes" size="28"></td>
+                <td><input type="date" name="due"></td>
+              </tr>
+              <!-- Add more rows for additional logbook information -->
             </tbody>
-        </table>
+            <tfoot>
+              <tr>
+                <td colspan="4"><button type="submit">Submit</button></td>
+              </tr>
+            </tfoot>
+          </table>
+          
         </div>
         
-        <button type="submit">Submit</button>
     </div>
-
+ <!-- return to homepage -->
     <div class="center">
         <div class="card">
             <a href="/home">Go back to homepage.</a>
         </div>
     </div>
 
+    <script>
+        //will need to post data to the database upon button click
+        //only allow for data if correctly formatted
+        //upon submission have card say data submitted
+    </script>
 </body>
 </html>
 
