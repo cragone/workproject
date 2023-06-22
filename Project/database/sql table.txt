@@ -28,7 +28,7 @@ CREATE TABLE logbook (
 CREATE TABLE logstatus (
 	lognotes TEXT,
 	log_id VARCHAR(25),
-	FOREIGN KEY (log_id) REFERENCES log_id (logbook)
+	FOREIGN KEY (log_id) REFERENCES logbook (log_id)
 );
 
 CREATE TABLE equipment (
@@ -52,3 +52,6 @@ INSERT INTO process_area (process_area_name) VALUES ('sr');
 INSERT INTO process_area (process_area_name) VALUES ('sa4');
 INSERT INTO process_area (process_area_name) VALUES ('sa6');
 INSERT INTO process_area (process_area_name) VALUES ('sa9');
+
+INSERT INTO room (room_name, process_area_name) VALUES ('368','pa3s');
+INSERT INTO room (room_name, process_area_name) VALUES ('367','pa3s');
