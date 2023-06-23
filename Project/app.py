@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from functions.areafunc import pull_area, room_getter
+from functions.subfunc import room_note
 
 app = Flask(__name__)
 
@@ -28,7 +29,29 @@ def roompage():
         return rooms
     else:
         return 'No rooms in this area', 404
-        
+    
+    
+    
+    
+@app.route("/roominfo", methods=["POST"])
+def roominfo():
+    room_name = request.args.get("room_name", None, str)
+
+    if not room_name:
+        return "Missing room name", 400
+
+    room_notes = request.args.get("room_notes", None, str)
+    datetime = request.args.get("datetime", None, str)
+    print(room_name, room_notes, datetime)
+    room_data = room_note(room_name, room_notes, datetime)
+    print(room_data)
+
+    if room_data is None:
+        return "Error saving data", 400
+    else:
+        return "Good request", 200
+
+     
 
 if __name__ == '__main__':
     app.run(debug=True, port=80)
