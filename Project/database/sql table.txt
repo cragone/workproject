@@ -12,7 +12,7 @@ CREATE TABLE room (
 
 CREATE TABLE notes (
     room_name VARCHAR(50),
-    room_notes TEXT PRIMARY KEY,
+    room_notes TEXT,
     addressed BOOLEAN,
     datetime VARCHAR(30),
     FOREIGN KEY (room_name) REFERENCES room (room_name)
@@ -44,6 +44,9 @@ CREATE TABLE equipstatus (
 	ecn VARCHAR(10),
 	FOREIGN KEY (ecn) REFERENCES equipment (ecn)
 );
+
+ALTER TABLE notes
+ALTER COLUMN addressed SET DEFAULT 'false';
 
 INSERT INTO process_area (process_area_name) VALUES ('pa1');
 INSERT INTO process_area (process_area_name) VALUES ('pa2s');
