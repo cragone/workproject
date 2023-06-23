@@ -41,17 +41,4 @@ def room_getter(process_area_name):
         return cursor.fetchall()
     except:
         return None
-    
-def upload_room():
-    connection = psycopg2.connect(
-                    user="postgres",
-                    password="postgrespostgres",
-                    host="localhost",
-                    port="5432",
-                    database="workproject"
-             ) 
-    cursor = connection.cursor()
-
-    insert_query = "INSERT INTO notes (room_name, room_notes, datetime) VALUES (%s); COMMIT;"
-    cursor.execute(insert_query, (content,))    
 
