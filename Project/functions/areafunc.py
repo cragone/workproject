@@ -2,7 +2,7 @@ import psycopg2
 
 
 
-
+#selects process area, used in function to verify area
 def pull_area(process_area_name):
     connection = psycopg2.connect(
                     user="postgres",
@@ -24,7 +24,7 @@ def pull_area(process_area_name):
 
 
 
-
+#gets room info from area selected
 def room_getter(process_area_name):
     connection = psycopg2.connect(
                     user="postgres",
@@ -41,4 +41,5 @@ def room_getter(process_area_name):
         return cursor.fetchall()
     except:
         return None
+    
 
