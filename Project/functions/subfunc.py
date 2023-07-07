@@ -1,7 +1,7 @@
 import psycopg2
 
 
-
+#function for room submission info
 def room_note(room_name, room_notes, datetime):
     connection = psycopg2.connect(
                     user="postgres",
@@ -21,3 +21,5 @@ def room_note(room_name, room_notes, datetime):
     except:
         
         return None
+    
+#Making function for equipment submission info
