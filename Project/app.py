@@ -20,6 +20,8 @@ def processpage():
             return render_template("area.html", area_name=process_area_name)
     else:
             return 'This Area does not exist', 404
+    
+
      
 @app.route("/rooms", methods=["GET"])
 def roompage():
@@ -32,7 +34,7 @@ def roompage():
     
     
     
-    
+#to pull room info from submission page    
 @app.route("/roominfo", methods=["POST"])
 def roominfo():
     room_name = request.args.get("room_name", None, str)
@@ -51,6 +53,10 @@ def roominfo():
     else:
         return "Good request", 200
 
+
+@app.route("/equipinfo", methods=["POST"])
+def equipinfo():
+     return "Good request", 200
      
 
 if __name__ == '__main__':
