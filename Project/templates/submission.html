@@ -67,17 +67,15 @@
                     <th>Room</th>
                     <th>ECN</th>
                     <th>Status</th>
-                    <th>Notes</th>
                     <th>Expiry</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="text" name="room2" placeholder="Room" size="12"></td>
-                    <td><input type="text" name="ecn" placeholder="ECN" size="10"></td>
-                    <td><input type="text" name="status" placeholder="Status" size="12"></td>
-                    <td><input type="text" name="status_notes" placeholder="Status Notes" size="14"></td>
-                    <td><input type="date" name="expiry"></td>
+                  <td><input type="text" id="room_name" placeholder="Room" size="12"></td>
+                  <td><input type="text" name="ecn" id="ecn" placeholder="ECN" size="12"></td>
+                  <td><input type="text" name="status" id="status" size="28"></td>
+                  <td><input type="text" id="expiry" placeholder="expiry" size="12"></td>
                 </tr>
                 <!-- Add more rows for additional room status information -->
             </tbody>
@@ -85,7 +83,7 @@
         <div class='row mt-2 mb-2'>
           <div class='col-sm-4'>
           </div>
-          <button type="button" class='btn btn-primary col-sm-4'>Submit</button>
+          <button type="button" class='btn btn-primary col-sm-4' onclick="grabEquip()">Submit</button>
           
       </div>
         </div>
@@ -150,6 +148,30 @@
                 console.error('Error:', error);
               });
           }
+
+        function grabEquip() {
+          let room_name = $("#room_name").val();
+          let ecn = $("#ecn").val();
+          let status = $("#status").val();
+          let expiry = $("#expiry").val();
+
+          let myinput = `room_name=${room_name}&ecn=${ecn}&status=${status}&expiry=${expiry}`;
+
+          axios.post(`/equipinfo?${myinput}`)
+          .then(response => {
+            // Handle the response
+            console.log('Response:', response.data);
+            console.log('Post Successful');
+            alert("Data Submitted")
+          })
+          .catch(error => {
+            // Handle the error
+            console.error('Error:', error);
+          });
+        }
       </script>
 </body>
 </html>
+
+
+
