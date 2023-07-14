@@ -34,10 +34,10 @@ def equip_note(room_name, ecn, status, expiry):
                     database="workproject"
              )
     cursor = connection.cursor()
-    query = "INSERT INTO equipment (room_name, ecn, staus, expiry) values (%s, %s, %s, %s); COMMIT;"
-
+    query = "INSERT INTO equipmentstatus (room_name, ecn, status, expiry) values (%s, %s, %s, %s); COMMIT;"
+    cursor.execute(query, (room_name, ecn, status, expiry))
     try:
-        cursor.execute(query, (room_name, ecn, status, expiry))
+        
         cursor.close()
         connection.close()
         return 'good'
