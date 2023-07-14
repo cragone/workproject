@@ -19,28 +19,34 @@ CREATE TABLE notes (
 );
 
 CREATE TABLE logbook (
-    log_id VARCHAR(25) PRIMARY KEY UNIQUE,
-    due VARCHAR(20),
-    room_name VARCHAR(50),
-    FOREIGN KEY (room_name) REFERENCES room (room_name)
+    log_id VARCHAR(25) PRIMARY KEY UNIQUE
 );
 
 CREATE TABLE logstatus (
 	lognotes TEXT,
-	log_id VARCHAR(25),
+	log_id VARCHAR(25) NOT NULL,
+    due VARCHAR(20),
+    room_name VARCHAR(50) NOT NULL,
+    PRIMARY KEY (log_id),
+    FOREIGN KEY (room_name) REFERENCES room (room_name),
 	FOREIGN KEY (log_id) REFERENCES logbook (log_id)
 );
 
-CREATE TABLE equipment (
-    ecn VARCHAR(10),
-    room_name VARCHAR(50),
-    status VARCHAR(20),
+
+CREATE TABLE equipmentstatus (
+    ecn VARCHAR(10) NOT NULL,
+    room_name VARCHAR(50) NOT NULL,
+    status VARCHAR(20) NOT NULL,
     expiry VARCHAR(20) DEFAULT 'Not Applicable',
-    FOREIGN KEY (room_name) REFERENCES room (room_name)
+    PRIMARY KEY (ecn, status),
+    FOREIGN KEY (room_name) REFERENCES room (room_name),
     FOREIGN KEY (ecn) REFERENCES equipment (ecn)
 );
 
-CREATE TABLE equipecn (
+
+
+
+CREATE TABLE equipment (
 	ecn VARCHAR(10) PRIMARY KEY UNIQUE
 );
 
@@ -54,3 +60,8 @@ INSERT INTO process_area (process_area_name) VALUES ('sa9');
 
 INSERT INTO room (room_name, process_area_name) VALUES ('368','pa3s');
 INSERT INTO room (room_name, process_area_name) VALUES ('367','pa3s');
+
+
+Insert Into equipment (ecn) values ('15061');
+Insert Into equipment (ecn) values ('15062');
+Insert Into equipment (ecn) values ('15066');
