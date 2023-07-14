@@ -67,7 +67,7 @@ def equipinfo():
     status = request.args.get("status", None, str)
     expiry = request.args.get("expiry", None, str)
     print(room_name, ecn, status, expiry)
-    equip_data = room_note(room_name, ecn, status, expiry)
+    equip_data = equip_note(room_name, ecn, status, expiry)
     print(equip_data)
 
     if equip_data is None:
