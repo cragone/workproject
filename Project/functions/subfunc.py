@@ -44,4 +44,4 @@ def equip_note(room_name, ecn, status, expiry):
     except:
         
         return None
-    
+#needs query for logbook table
